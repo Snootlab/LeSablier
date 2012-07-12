@@ -24,13 +24,6 @@ void loop() {
 		Serial.read(); //Space
 		uint8_t seconds = str2nb(Serial.read(), Serial.read());
 
-		Serial.println(day);
-		Serial.println(date);
-		Serial.println(month);
-		Serial.println(year);
-		Serial.println(hours);
-		Serial.println(minutes);
-		Serial.println(seconds);
 		LeSablier.setDay(day);
 		LeSablier.setDate(date);
 		LeSablier.setMonth(month);
@@ -41,8 +34,6 @@ void loop() {
 
 		//Or more concisely and fast :
 		//LeSablier.setAll(day, date, month, year, hours, minutes, seconds);
-		Serial.print("Done");
-		Serial.print(Serial.available());
 	}
 }
 
