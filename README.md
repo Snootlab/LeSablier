@@ -10,6 +10,7 @@ Examples
 * SerialClock: a clock communicating via serial port
 * DeuligneClock: a clock displaying the time with the Deuligne
 * SetTime: Change the time via serial port
+* Language: Demonstration of LeSablier's language support
 
 Installation
 ============

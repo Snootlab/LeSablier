@@ -1,16 +1,6 @@
 #include <Wire.h>
 #include <LeSablier.h>
 
-char weekDays[7][4] = {
-	"Mon",
-	"Tue",
-	"Wed",
-	"Thu",
-	"Fri",
-	"Sat",
-	"Sun"
-};
-
 void setup() {
 	Wire.begin();
 	Serial.begin(9600);
@@ -18,7 +8,7 @@ void setup() {
 }
 
 void loop() {
-	Serial.print(weekDays[LeSablier.getDay()]);
+	Serial.print(LeSablier.getDayStr());
 	Serial.print(", ");
 	Serial.print(LeSablier.getMonth());
 	Serial.print("/");
@@ -33,7 +23,5 @@ void loop() {
 	Serial.print(LeSablier.getSeconds());
 	Serial.print(" - Temp : ");
 	Serial.println(LeSablier.getTemp());
-
-	delay(1000);
 }
 

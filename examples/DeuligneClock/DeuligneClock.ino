@@ -2,16 +2,6 @@
 #include <Deuligne.h>
 #include <Wire.h>
 
-char weekDays[7][4] = {
-	"Mon",
-	"Tue",
-	"Wed",
-	"Thu",
-	"Fri",
-	"Sat",
-	"Sun"
-};
-
 Deuligne lcd;
 
 void setup() {
@@ -32,7 +22,7 @@ void loop() {
 	lcd.print(LeSablier.getSeconds());
 	lcd.print("                "); //clear the rest of the line
 	lcd.setCursor(0, 1);
-	lcd.print(weekDays[LeSablier.getDay()]);
+	lcd.print(LeSablier.getDayStr());
 	lcd.print(", ");
 	lcd.print(LeSablier.getMonth());
 	lcd.print("/");
@@ -40,7 +30,5 @@ void loop() {
 	lcd.print("/");
 	lcd.print(LeSablier.getYear());
 	lcd.print("                "); //clear the rest of the line
-
-	delay(1000);
 }
 

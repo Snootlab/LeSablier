@@ -4,6 +4,13 @@
 
 #define LESABLIER_I2C_ADDRESS 104
 
+#ifdef LESABLIER_DAY_NAMES
+static const char* dayNames[7] = LESABLIER_DAY_NAMES;
+#endif
+#ifdef LESABLIER_MONTH_NAMES
+static const char* monthNames[12] = LESABLIER_MONTH_NAMES;
+#endif
+
 LeSablier_ LeSablier;
 
 void LeSablier_::begin() {
@@ -23,7 +30,7 @@ void LeSablier_::update() {
 		_seconds = _bcd2dec(Wire.read());
 		_minutes = _bcd2dec(Wire.read());
 		_hours   = _bcd2dec(Wire.read());
-		_day     = (Wire.read() & B00000111) - 1; //-1 is to transform from 1-7 to 0-6
+		_day     = (Wire.read() & B00000111);
 		_date    = _bcd2dec(Wire.read());
 		_month   = _bcd2dec(Wire.read()); //msb7 is century overflow
 		_year    = _bcd2dec(Wire.read());
@@ -64,6 +71,18 @@ uint8_t LeSablier_::getDay() {
 	fastUpdate();
 	return _day;
 }
+
+#ifdef LESABLIER_DAY_NAMES
+const char* LeSablier_::getDayStr() {
+	return dayNames[getDay()-1];
+}
+#endif
+
+#ifdef LESABLIER_MONTH_NAMES
+const char* LeSablier_::getMonthStr() {
+	return monthNames[getMonth()-1];
+}
+#endif
 
 uint8_t LeSablier_::getDate() {
 	fastUpdate();
@@ -132,7 +151,7 @@ void LeSablier_::setAll(uint8_t day, uint8_t date, uint8_t month, uint8_t year, 
 	Wire.write(_dec2bcd(seconds));
 	Wire.write(_dec2bcd(minutes));
 	Wire.write(_dec2bcd(hours));
-	Wire.write(_dec2bcd(day+1)); //+1 : 0-6 -> 1-7
+	Wire.write(_dec2bcd(day));
 	Wire.write(_dec2bcd(date));
 	Wire.write(_dec2bcd(month));
 	Wire.write(_dec2bcd(year));

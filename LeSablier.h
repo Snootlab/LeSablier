@@ -2,6 +2,7 @@
 #define LESABLIER_H
 
 #include <Arduino.h>
+#include "LeSablierConfig.h"
 
 class LeSablier_ {
 	public:
@@ -28,6 +29,13 @@ class LeSablier_ {
 		void setSeconds(uint8_t seconds);
 
 		void setAll(uint8_t day, uint8_t date, uint8_t month, uint8_t year, uint8_t hours, uint8_t minutes, uint8_t seconds);
+
+#ifdef LESABLIER_DAY_NAMES
+		const char* getDayStr();
+#endif
+#ifdef LESABLIER_MONTH_NAMES
+		const char* getMonthStr();
+#endif
 
 	private:
 		uint8_t _year;
