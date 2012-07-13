@@ -6,7 +6,9 @@ fastUpdate	KEYWORD2
 updateTemp	KEYWORD2
 getYear	KEYWORD2
 getMonth	KEYWORD2
+getMonthStr	KEYWORD2
 getDay	KEYWORD2
+getDayStr	KEYWORD2
 getDate	KEYWORD2
 getHours	KEYWORD2
 getMinutes	KEYWORD2
