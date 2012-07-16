@@ -1,3 +1,9 @@
+/**
+ * \file LeSablierConfig.h
+ * \brief Configure the language used
+ * \author Théophile `TWal` Wallez
+ */
+
 #ifndef LESABLIERCONFIG_H
 #define LESABLIERCONFIG_H
 
