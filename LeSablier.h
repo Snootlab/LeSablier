@@ -1,7 +1,7 @@
 /**
  * \file LeSablier.h
  * \brief Main file
- * \author Théophile `TWal` Wallez
+ * \author Theophile `TWal` Wallez
  */
 
 /**
